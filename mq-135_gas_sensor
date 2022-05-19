@@ -1,24 +1,23 @@
+
 import RPi.GPIO as GPIO
-from time  import sleep
+from time import sleep
 
 bzztime=0.5
 bzzdelay=2
 bzzpin=25
 
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(4,GPIO.IN)
-GPIO.setup(bzzpin, GPIO.OUT)  #buzzer pin define
+GPIO.setup(bzzpin, GPIO.OUT) #buzzer pin define
+GPIO.setup(24,GPIO.IN)
+GPIO.output(bzzpin,False)
 try:
-     while True:
-     if  GPIO.input(4):
-        GPIO.output(bzzpin, True)        
-     else:
-        print("yanlış porta bağladın")
-     sleep(1)
+        while True:
+             if GPIO.input(24):
+                GPIO.output(bzzpin, True)
 finally:
-    print("cleanup")
-    GPIO.cleanup()
-
+        print("cleanup")
+        GPIO.cleanup()
 
 
 
