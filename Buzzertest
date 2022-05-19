@@ -8,7 +8,7 @@ bzzdelay=2
 bzzpin=25
 
 GPIO.setup(bzzpin, GPIO.OUT)
-GPIO.output(bzzpin, GPIO.True)
-sleep(bztime)
-GPIO.output(i, GPIO.False)
+GPIO.output(bzzpin, True)
+sleep(bzztime)
+GPIO.output(bzzpin, False)
 sleep(bzzdelay)
