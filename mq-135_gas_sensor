@@ -8,13 +8,20 @@ bzzdelay=2
 bzzpin=25
 
 GPIO.setmode(GPIO.BCM)
+GPIO.cleanup()
 GPIO.setup(bzzpin, GPIO.OUT) #buzzer pin define
 GPIO.setup(24,GPIO.IN)
 GPIO.output(bzzpin,False)
 try:
         while True:
              if GPIO.input(24):
+                print("gaz yok")
+             else:
+                print("gaz yok")
                 GPIO.output(bzzpin, True)
+                sleep(1)
+                GPIO.output(bzzpin,False)
+                sleep(1)
 finally:
         print("cleanup")
         GPIO.cleanup()
