@@ -1,0 +1,14 @@
+import RPi.GPIO as GPIO
+from time  import sleep
+
+GPIO.setmode(GPIO.BCM)
+
+bzztime=0.5
+bzzdelay=2
+bzzpin=25
+
+GPIO.setup(bzzpin, GPIO.OUT)
+GPIO.output(bzzpin, GPIO.True)
+sleep(bztime)
+GPIO.output(i, GPIO.False)
+sleep(bzzdelay)
