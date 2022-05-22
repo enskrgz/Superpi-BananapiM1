@@ -1,0 +1,36 @@
+import RPi.GPIO as GPIO
+import dht11
+import time
+import datetime
+
+# initialize GPIO
+GPIO.setwarnings(True)
+GPIO.setmode(GPIO.BCM)
+
+bzztime=0.5
+bzzdelay=2
+bzzpin=25
+GPIO.setup(bzzpin, GPIO.OUT)  #buzzer
+
+# read data using pin 14
+instance = dht11.DHT11(pin=18)
+
+try:
+        while True:
+            result = instance.read()
+            if result.is_valid():
+                print("Last valid input: " + str(datetime.datetime.now()))
+
+                print("Temperature: %-3.1f C" % result.temperature)
+                print("Humidity: %-3.1f %%" % result.humidity)
+                if (result.temperature)>25:
+                        GPIO.output(bzzpin,True)
+                        time.sleep(bzztime)
+                        GPIO.output(bzzpin,False)
+                        time.sleep(bzzdelay)
+
+            time.sleep(6)
+
+except KeyboardInterrupt:
+    print("Cleanup")
+    GPIO.cleanup()
