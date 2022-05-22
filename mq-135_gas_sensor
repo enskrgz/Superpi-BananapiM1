@@ -17,7 +17,7 @@ try:
              if GPIO.input(24):
                 print("gaz yok")
              else:
-                print("gaz yok")
+                print("gaz var alarm çalıyor")
                 GPIO.output(bzzpin, True)
                 sleep(1)
                 GPIO.output(bzzpin,False)
