@@ -1,0 +1,11 @@
+{
+  "name": "sensorcore",
+  "version": "0.0.0",
+  "description": "bitirme projesi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Enes Karagöz-2022",
+  "license": "BSD-2-Clause"
+}
