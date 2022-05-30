@@ -1,4 +1,5 @@
-#raspberrypi code
+#BANANA Pİ İLE ORTAM HAVA KALİTE İZLEME SİSTEMİ
+# Ana Kod Sayfası 
 from mq import *
 import sys
 import asyncio
