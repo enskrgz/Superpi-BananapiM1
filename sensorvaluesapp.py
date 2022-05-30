@@ -39,11 +39,11 @@ except KeyboardInterrupt:
 sio = socketio.AsyncClient()
 
 @sio.event
-async def connect():
+async def connect():                # Asekron bağlantı için gerekli işlem yapılmaktadır.
     print('connection established')
 
 @sio.event
-async def message(data):
+async def message(data):            # verileri bir blok haline göndermekteyiz data adında değişkene tüm okuduğumuz değerleri ekliyoruz.
     data = {
       "LPG:": gasvalue,
       "CO²": covalue,
@@ -52,14 +52,14 @@ async def message(data):
       "TEMPERATURE": tempvalue,
       "HUMIDITY": humidityvalue
     }
-    print('message received with ', data)
+    print('message received with ', data)     # test çıktısı olarak eklenmiştir.
     await sio.emit('fromAPI', {'msgFromPy': 'my response'})
 
 @sio.event
 async def disconnect():
     print('disconnected from server')
 
-async def main():
+async def main():                             #  localhost üzerinde 5000 portuyla çalışmaktadır. 
     await sio.connect('http://localhost:5000')
     await sio.wait()
 
