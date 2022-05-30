@@ -1,4 +1,4 @@
-#BANANA Pİ İLE ORTAM HAVA KALİTE İZLEME SİSTEMİ
+#BANANA PI İLE ORTAM HAVA KALİTE İZLEME SİSTEMİ
 # Ana Kod Sayfası 
 from mq import *
 import sys
