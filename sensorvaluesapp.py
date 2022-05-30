@@ -18,29 +18,20 @@ instance = dht11.DHT11(pin=18) # DHT11 sensör verisini pin18 den alıyoruz.
 try:
   mq = MQ();
         while True:
-            perc = mq.MQPercentage()
-            #test 
-            #sys.stdout.write("\r")
-            #sys.stdout.write("\033[K")
-            #sys.stdout.write("LPG: %g ppm, CO: %g ppm, Smoke: %g ppm" % (perc["GAS_LPG"], perc["CO"], perc["SMOKE"]))
-            #sys.stdout.flush()
+            perc = mq.MQPercentage()    #mq kütüphanesinin içerisindeki MQPercentage() fonksiyonu incelenerek oluşturulmuştur.
             gasvalue =perc["GAS_LPG"]
             covalue = perc["CO"]
             smokevalue = perc["SMOKE"]
             time.sleep(0.1)
-            result = instance.read()
+            result = instance.read()     #dht11 kütüphanesi içerisinde instance fonksiyonu incelenerek oluşturulmuştur.
             if result.is_valid():
-                #test çıktıları
-                #print("Last valid input: " + str(datetime.datetime.now()))
-                #print("Temperature: %-3.1f C" % result.temperature)
-                #print("Humidity: %-3.1f %%" % result.humidity)
                 datetimevalue = str(datetime.datetime.now())
                 tempvalue = result.temperature
                 humidityvalue = result.humidity
 
             time.sleep(6)
             
-except KeyboardInterrupt:
+except KeyboardInterrupt:    
     print("Cleanup")
     GPIO.cleanup()
 
